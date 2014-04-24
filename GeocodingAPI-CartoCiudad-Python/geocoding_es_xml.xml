@@ -1,0 +1,44 @@
+<?xml
+ version="1.0" encoding="UTF-8" standalone="yes"?>
+<Execute service="WPS" version="0.4.0" store="false" status="false"
+xmlns="http://www.opengeospatial.net/wps"
+xmlns:pak="http://www.opengis.net/examples/packet"
+xmlns:ows="http://www.opengeospatial.net/ows"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.opengeospatial.net/wps
+..\wpsExecute.xsd" xmlns:om="http://www.opengis.net/om"
+xmlns:gml="http://www.opengis.net/gml">
+	
+<ows:Identifier>com.ign.process.geometry.ClosestMultiplePointFinder</ows:Identifier>
+
+	<DataInputs>
+	<Input>
+		<ows:Identifier>data</ows:Identifier>
+		<ows:Title>Punto</ows:Title>
+		<ComplexValue
+defaultSchema="http://www.idee.es/parser/ArrayList.xsd">
+			<gml:Point>
+				<gml:coord>
+					<gml:X>$$LONGITUD</gml:X>
+					<gml:Y>$$LATITUD</gml:Y>
+				</gml:coord>
+			</gml:Point>
+		</ComplexValue>
+	</Input>
+	</DataInputs>
+	<OutputDefinitions>
+	<Output>
+		<ows:Identifier>result</ows:Identifier>
+		<ows:Title>Lista de portales</ows:Title>
+		<ows:Abstract>xml con la lista de portales y las coordenadas de
+busqueda</ows:Abstract>
+		<ComplexOutput defaultFormat="text/XML"
+defaultSchema="http://www.idee.es/portalList.xsd">
+			<SupportedComplexData>
+				<Schema>http://www.idee.es/portalList.xsd</Schema>
+			</SupportedComplexData>
+		</ComplexOutput>
+	</Output>
+	</OutputDefinitions>
+</Execute>
